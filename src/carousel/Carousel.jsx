@@ -2,6 +2,9 @@ import React from 'react';
 import { useRef, useState, useEffect } from 'react';
 import CarouselItem from './CarouselItem';
 import CarouselControls from './CarouselControls';
+import CarouselIndicators from './CarouselIndicators';
+
+// scss
 import './Carousel.scss';
 
 const Carousel = ({ slides }) => {
@@ -17,6 +20,11 @@ const Carousel = ({ slides }) => {
   const next = () => {
     startSlideTimer();
     const index = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
+    setcurrentSlide(index);
+  };
+
+  const switchIndex = (index) => {
+    startSlideTimer();
     setcurrentSlide(index);
   };
 
@@ -55,6 +63,11 @@ const Carousel = ({ slides }) => {
           />
         ))}
       </div>
+      <CarouselIndicators
+        slides={slides}
+        currentIndex={currentSlide}
+        switchIndex={switchIndex}
+      />
       <CarouselControls prev={prev} next={next} />
     </div>
   );

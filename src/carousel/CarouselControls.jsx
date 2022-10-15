@@ -1,6 +1,3 @@
-import React from 'react';
-import './Carousel.scss';
-
 const CarouselControls = ({ prev, next }) => {
   return (
     <div>

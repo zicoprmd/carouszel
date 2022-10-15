@@ -1,0 +1,18 @@
+.carousel {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 900px;
+}
+
+.carousel-inner {
+  white-space: nowrap;
+}
+
+.carousel-item {
+  display: inline-block;
+  width: 100%;
+}
+
+img {
+  max-width: 900px;
+}

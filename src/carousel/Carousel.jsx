@@ -1,5 +1,6 @@
 import React from 'react';
 import CarouselItem from './CarouselItem';
+import './Carousel.scss';
 
 const Carousel = ({ slides }) => {
   return (

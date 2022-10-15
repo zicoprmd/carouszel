@@ -7,7 +7,12 @@ import CarouselIndicators from './CarouselIndicators';
 // scss
 import './Carousel.scss';
 
-const Carousel = ({ slides }) => {
+const Carousel = ({
+  slides,
+  interval = 5000,
+  controls = false,
+  indicators = false,
+}) => {
   const [currentSlide, setcurrentSlide] = useState(0);
   const slideInterval = useRef();
 
@@ -34,7 +39,7 @@ const Carousel = ({ slides }) => {
       setcurrentSlide((currentSlide) =>
         currentSlide < slides.length - 1 ? currentSlide + 1 : 0
       );
-    }, 3000);
+    }, interval);
   };
 
   const stopSlideTimer = () => {
@@ -63,12 +68,14 @@ const Carousel = ({ slides }) => {
           />
         ))}
       </div>
-      <CarouselIndicators
-        slides={slides}
-        currentIndex={currentSlide}
-        switchIndex={switchIndex}
-      />
-      <CarouselControls prev={prev} next={next} />
+      {indicators && (
+        <CarouselIndicators
+          slides={slides}
+          currentIndex={currentSlide}
+          switchIndex={switchIndex}
+        />
+      )}
+      {controls && <CarouselControls prev={prev} next={next} />}
     </div>
   );
 };

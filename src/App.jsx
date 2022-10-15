@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import React from 'react';
 import Carousel from './carousel/Carousel';
 
@@ -14,7 +13,7 @@ function App() {
 
   return (
     <div className="container">
-      <Carousel slides={slides} />
+      <Carousel slides={slides} indicators controls />
     </div>
   );
 }
